@@ -13,3 +13,5 @@
 .current-page {
     @apply text-white bg-blue-500 md:bg-transparent md:text-blue-500;
 }
+
+.material-icons .md-18 { font-size: 18px; }
