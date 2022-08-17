@@ -34,6 +34,11 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function statusChecker(string $str) {
+        if ($this->staus === $str) return true;
+        return false;
+    }
+
     public function scopeAdvertise($query)
     {
         return $query->where('like_count', '<', 1000)

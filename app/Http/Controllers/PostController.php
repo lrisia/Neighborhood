@@ -139,6 +139,7 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->description = $request->input('description');
+
         $post->save();
 
         $tags = $request->get('tags');
@@ -172,6 +173,13 @@ class PostController extends Controller
         $comment = new Comment();
         $comment->message = $request->get('message');
         $post->comments()->save($comment);
+        return redirect()->route('posts.show', ['post' => $post->id]);
+    }
+
+    public function updateStatus(Request $request, Post $post) {
+//        dd($request->get('status'));
+        $post->status = $request->get('status');
+        $post->save();
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
 }

@@ -26,20 +26,45 @@
                 {{ $post->like_count }} likes
             </p>
 
-            
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an option</label>
-            <select id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>เลือกสถานะ</option>
-                <option value="Waiting">รอรับเรื่อง</option>
-                <option value="Received">รับเรื่องแล้ว</option>
-                <option value="Progress">กำลังดำเนินการ</option>
-                <option value="Completed">ดำเนินการเสร็จสิ้น</option>
-                <option value="Return">ถูกตีกลับ</option>
-            </select>
-            <p class="mt-4 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
-                <span style="color: green" class="material-symbols-outlined md-18">adjust</span>
-                &nbsp;status: {{ $post->status }}
+            <p class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
+                @if($post->status === "Waiting")
+                    <span style="color: gray" class="material-symbols-outlined">radio_button_checked</span>
+                @elseif($post->status === "Received")
+                    <span style="color: black" class="material-symbols-outlined">radio_button_checked</span>
+                @elseif($post->status === "Progress")
+                    <span style="color: #ffd700" class="material-symbols-outlined">radio_button_checked</span>
+                @elseif($post->status === "Completed")
+                    <span style="color: #67e049" class="material-symbols-outlined">radio_button_checked</span>
+                @else
+                    <span style="color: red" class="material-symbols-outlined">radio_button_checked</span>
+                @endif
+                &nbsp;Status: {{ $post->status }}
             </p>
+
+            <form action="{{ route('posts.status.update', ['post' => $post->id]) }}" method="post">
+                @csrf
+{{--                @method('PUT')--}}
+                <div class="bg-gray-100 p-2 rounded">
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an option</label>
+                    <select name="status" id="status" class="w-9/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+{{--                        <option value="Default" selected>เลือกสถานะ</option>--}}
+                        <option value="{{ $post->status }}" selected>{{ $post->status }}</option>
+                        @foreach(\array_diff(array("Waiting", "Received", "Progress", "Completed", "Return"), array( $post->status ) ) as $status)
+                            <option value="{{ $status }}">{{ $status }}</option>
+                        @endforeach
+{{--                        <option value="Waiting" selected>รอรับเรื่อง</option>--}}
+{{--                        <option value="Received">รับเรื่องแล้ว</option>--}}
+{{--                        <option value="Progress">กำลังดำเนินการ</option>--}}
+{{--                        <option value="Completed">ดำเนินการเสร็จสิ้น</option>--}}
+{{--                        <option value="Return">ถูกตีกลับ</option>--}}
+                    </select>
+                    <button class="app-button" type="submit">แก้ไขสถานะ</button>
+                </div>
+                <p class="mt-4 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
+                    <span style="color: green" class="material-symbols-outlined md-18">adjust</span>
+                    &nbsp;status: {{ $post->status }}
+                </p>
+            </form>
         </div>
 
         <div class="mb-4">
