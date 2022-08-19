@@ -1232,6 +1232,9 @@ input:checked + .toggle-bg {
 .right-0 {
   right: 0px;
 }
+.right-4 {
+  right: 1rem;
+}
 .bottom-\[60px\] {
   bottom: 60px;
 }
@@ -1307,8 +1310,8 @@ input:checked + .toggle-bg {
 .mr-1 {
   margin-right: 0.25rem;
 }
-.mt-4 {
-  margin-top: 1rem;
+.mt-2 {
+  margin-top: 0.5rem;
 }
 .mb-8 {
   margin-bottom: 2rem;
@@ -1316,11 +1319,11 @@ input:checked + .toggle-bg {
 .mt-8 {
   margin-top: 2rem;
 }
+.mt-4 {
+  margin-top: 1rem;
+}
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mt-2 {
-  margin-top: 0.5rem;
 }
 .mt-1 {
   margin-top: 0.25rem;
@@ -1406,11 +1409,11 @@ input:checked + .toggle-bg {
 .w-6 {
   width: 1.5rem;
 }
-.w-4 {
-  width: 1rem;
-}
 .w-9\/12 {
   width: 75%;
+}
+.w-4 {
+  width: 1rem;
 }
 .w-20 {
   width: 5rem;
@@ -1737,6 +1740,17 @@ input:checked + .toggle-bg {
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.from-cyan-500 {
+  --tw-gradient-from: #06b6d4;
+  --tw-gradient-to: rgb(6 182 212 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.to-blue-500 {
+  --tw-gradient-to: #3F83F8;
 }
 .fill-current {
   fill: currentColor;
@@ -2161,7 +2175,7 @@ input:checked + .toggle-bg {
   }
 }
 
-.material-icons .md-18 { font-size: 18px; }
+.material-icons .md-8 { font-size: 8px; }
 
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
@@ -2201,6 +2215,10 @@ input:checked + .toggle-bg {
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gradient-to-bl:hover {
+  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
 }
 
 .hover\:text-gray-500:hover {
@@ -2348,6 +2366,11 @@ input:checked + .toggle-bg {
 .focus\:ring-gray-200:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-cyan-300:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(103 232 249 / var(--tw-ring-opacity));
 }
 
 .focus\:ring-blue-300:focus {
@@ -2508,6 +2531,11 @@ input:checked + .toggle-bg {
 .dark .dark\:focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(63 131 248 / var(--tw-ring-opacity));
+}
+
+.dark .dark\:focus\:ring-cyan-800:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(21 94 117 / var(--tw-ring-opacity));
 }
 
 @media (min-width: 640px) {

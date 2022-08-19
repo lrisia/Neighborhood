@@ -170,9 +170,15 @@ class PostController extends Controller
 
     public function storeComment(Request $request, Post $post)
     {
-        $comment = new Comment();
-        $comment->message = $request->get('message');
-        $post->comments()->save($comment);
+        $comment_message = $request->get('message');
+        if (is_null($comment_message)) {
+            $post->like_count = $post->like_count + 1;
+            $post->save();
+        } else {
+            $comment = new Comment();
+            $comment->message = $comment_message;
+            $post->comments()->save($comment);
+        }
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
