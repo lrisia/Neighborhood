@@ -2,7 +2,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <article class="mx-8">
+    <article class="mt-6 mx-8">
         <h1 class="text-3xl mb-1">
             {{ $post->title }}
         </h1>
@@ -12,12 +12,12 @@
         </p>
 
         <div class="mb-4 justify-center items-center">
-            <p class="bg-orange-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
-                <svg class="w-6 h-6 inline mr-1" viewBox="0 0 20 20">
-                    <path d="M10,6.978c-1.666,0-3.022,1.356-3.022,3.022S8.334,13.022,10,13.022s3.022-1.356,3.022-3.022S11.666,6.978,10,6.978M10,12.267c-1.25,0-2.267-1.017-2.267-2.267c0-1.25,1.016-2.267,2.267-2.267c1.251,0,2.267,1.016,2.267,2.267C12.267,11.25,11.251,12.267,10,12.267 M18.391,9.733l-1.624-1.639C14.966,6.279,12.563,5.278,10,5.278S5.034,6.279,3.234,8.094L1.609,9.733c-0.146,0.147-0.146,0.386,0,0.533l1.625,1.639c1.8,1.815,4.203,2.816,6.766,2.816s4.966-1.001,6.767-2.816l1.624-1.639C18.536,10.119,18.536,9.881,18.391,9.733 M16.229,11.373c-1.656,1.672-3.868,2.594-6.229,2.594s-4.573-0.922-6.23-2.594L2.41,10l1.36-1.374C5.427,6.955,7.639,6.033,10,6.033s4.573,0.922,6.229,2.593L17.59,10L16.229,11.373z"></path>
-                </svg>
-                {{ $post->view_count }} views
-            </p>
+{{--            <p class="bg-orange-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">--}}
+{{--                <svg class="w-6 h-6 inline mr-1" viewBox="0 0 20 20">--}}
+{{--                    <path d="M10,6.978c-1.666,0-3.022,1.356-3.022,3.022S8.334,13.022,10,13.022s3.022-1.356,3.022-3.022S11.666,6.978,10,6.978M10,12.267c-1.25,0-2.267-1.017-2.267-2.267c0-1.25,1.016-2.267,2.267-2.267c1.251,0,2.267,1.016,2.267,2.267C12.267,11.25,11.251,12.267,10,12.267 M18.391,9.733l-1.624-1.639C14.966,6.279,12.563,5.278,10,5.278S5.034,6.279,3.234,8.094L1.609,9.733c-0.146,0.147-0.146,0.386,0,0.533l1.625,1.639c1.8,1.815,4.203,2.816,6.766,2.816s4.966-1.001,6.767-2.816l1.624-1.639C18.536,10.119,18.536,9.881,18.391,9.733 M16.229,11.373c-1.656,1.672-3.868,2.594-6.229,2.594s-4.573-0.922-6.23-2.594L2.41,10l1.36-1.374C5.427,6.955,7.639,6.033,10,6.033s4.573,0.922,6.229,2.593L17.59,10L16.229,11.373z"></path>--}}
+{{--                </svg>--}}
+{{--                {{ $post->view_count }} views--}}
+{{--            </p>--}}
 
 {{--            <label class="switch">--}}
 {{--                <input type="checkbox">--}}
@@ -25,7 +25,7 @@
 {{--            </label>--}}
             <p class="bg-green-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
                 <span class="material-symbols-outlined">voting_chip</span>
-                &nbsp;{{ $post->like_count }} likes
+                &nbsp;{{ $post->like_count }}
             </p>
 
             <p class="mt-2 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
@@ -40,7 +40,7 @@
                 @else
                     <span style="color: red" class="material-symbols-outlined">radio_button_checked</span>
                 @endif
-                &nbsp;Status: {{ $post->status }}
+                &nbsp;สถานะ: {{ $post->statusTranslator() }}
             </p>
 
             <form action="{{ route('posts.status.update', ['post' => $post->id]) }}" method="post">
@@ -94,15 +94,14 @@
                 <div class="w-full border-b border-gray-300"></div>
             </div>
             <div class="relative flex justify-center">
-                <span class="bg-white px-4 text-sm text-gray-500">Comments</span>
+                <span class="bg-white px-4 text-sm text-gray-500">ความคิดเห็น</span>
             </div>
         </div>
 
-        <h2 class="text-2xl mb-2">Comments</h2>
+{{--        <h2 class="text-2xl mb-2">Comments</h2>--}}
 
         <form class="mb-4" action="{{ route('posts.comments.store', ['post' => $post->id]) }}" method="post">
             @csrf
-
             <label for="chat" class="sr-only">Your message</label>
             <div class="flex items-center py-2 px-3 bg-gray-200 rounded-lg dark:bg-gray-700">
                 <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
@@ -113,13 +112,12 @@
 {{--                    <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd"></path></svg>--}}
                     <span class="material-symbols-outlined">voting_chip</span>
                 </button>
-                <textarea name="message" id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
+                <textarea name="message" id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="คุณคิดอะไรอยู่..."></textarea>
                 <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
                     <svg aria-hidden="true" class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
                     <span class="sr-only">Send message</span>
                 </button>
             </div>
-
         </form>
 
         @if ($post->comments->isNotEmpty())
@@ -129,6 +127,7 @@
                 <div class="block p-6 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 ">
                     <p class="bg-orange-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
                         {{ $comment->created_at->diffForHumans() }}
+                        <p class="inline-flex text-gray-400 text-sm">ความคิดเห็นโดย {{ $comment->user->name }}</p>
                     </p>
                     <div class="text-xl pl-4">
                         {{ $comment->message }}
@@ -138,7 +137,7 @@
             </div>
         @else
             <div class="pl-8">
-                Be the first one to comment...
+                คุณเป็นคนแรกที่นี่
             </div>
         @endif
     </section>

@@ -35,9 +35,18 @@ class Post extends Model
     }
 
     public function statusChecker(string $str) {
-        if ($this->staus === $str) return true;
+        if ($this->status === $str) return true;
         return false;
     }
+
+    public function statusTranslator() {
+        if ($this->status === "Waiting") return "กำลังส่งเรื่อง";
+        else if ($this->status === "Received") return "รับเรื่องแล้ว";
+        else if ($this->status === "Progress") return "กำลังดำเนินการ";
+        else if ($this->status === "Completed") return "เสร็จสิ้น";
+        else return "ส่งเรื่องกลับ";
+    }
+
 
     public function scopeAdvertise($query)
     {

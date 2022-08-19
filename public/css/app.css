@@ -1214,6 +1214,10 @@ input:checked + .toggle-bg {
 .relative {
   position: relative;
 }
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
 .inset-0 {
   top: 0px;
   right: 0px;
@@ -1904,6 +1908,10 @@ input:checked + .toggle-bg {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 .font-medium {
   font-weight: 500;
