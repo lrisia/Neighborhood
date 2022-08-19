@@ -139,6 +139,7 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->description = $request->input('description');
+
         $post->save();
 
         $tags = $request->get('tags');
@@ -169,9 +170,24 @@ class PostController extends Controller
 
     public function storeComment(Request $request, Post $post)
     {
-        $comment = new Comment();
-        $comment->message = $request->get('message');
-        $post->comments()->save($comment);
+        $comment_message = $request->get('message');
+        if (is_null($comment_message)) {
+            $post->like_count = $post->like_count + 1;
+            $post->save();
+        } else {
+
+            $comment = new Comment();
+            $comment->user_id = Auth::user()->id;
+            $comment->message = $comment_message;
+            $post->comments()->save($comment);
+        }
+        return redirect()->route('posts.show', ['post' => $post->id]);
+    }
+
+    public function updateStatus(Request $request, Post $post) {
+//        dd($request->get('status'));
+        $post->status = $request->get('status');
+        $post->save();
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
 }

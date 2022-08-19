@@ -25,6 +25,8 @@ require __DIR__.'/auth.php';
 
 Route::post('/posts/{post}/comments', [\App\Http\Controllers\PostController::class, 'storeComment'])
     ->name('posts.comments.store');
+Route::post('/post/{post}/status', [\App\Http\Controllers\PostController::class, 'updateStatus'])
+    ->name('posts.status.update');
 
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
 
