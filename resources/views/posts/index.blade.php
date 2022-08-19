@@ -4,7 +4,7 @@
 @section('content')
     <section class="mx-8">
         <h1 class="text-3xl mx-4 mt-6">
-            ปัญหาที่พบบ่อย
+            รายงานยอดนิยม
         </h1>
         <div class="my-1 px-8 py-2 flex flex-wrap justify-between space-y-6">
             @foreach($posts->sortByDesc('like_count') as $post)
@@ -14,7 +14,7 @@
                         {{ $post->title }}
                     </h5>
                     <p class="mb-2">
-                        By {{ $post->user->name }}
+                        รายงานโดย  {{ $post->user->name }}
                     </p>
 
                     {{--<p class="bg-orange-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
@@ -32,7 +32,7 @@
                     <p class="absolute right-4 mt-2 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
                         &nbsp;สถานะ: {{ $post->statusTranslator() }}&nbsp;
                         @if($post->status === "Waiting")
-                            <span style="color: gray" class="material-symbols-outlined">radio_button_checked</span>
+                            <span style="color: #B9B9B9" class="material-symbols-outlined">radio_button_checked</span>
                         @elseif($post->status === "Received")
                             <span style="color: black" class="material-symbols-outlined">radio_button_checked</span>
                         @elseif($post->status === "Progress")
