@@ -6,7 +6,9 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -55,10 +57,12 @@ class PostController extends Controller
         ]);
 
         $post = new Post();
+//        dd($request->get('image'));
         $post->title = $request->input('title');
         $post->description = $request->input('description');
 //        $post->user_id = Auth::user()->id;
         $post->user_id = $request->user()->id;
+        $post->picture_path = $this->uploadPicture($request);
         $post->save();
 
         $tags = $request->get('tags');
@@ -89,6 +93,26 @@ class PostController extends Controller
             $tag_ids[] = $tag->id;
         }
         return $tag_ids;
+    }
+
+    public function uploadPicture(Request $request) {
+/*        $uploadedFile = $request->get('image');
+//        dd($uploadedFile);
+//        dd(time().$uploadedFile->getClientOriginalName());
+//        dd(Carbon::now()->format('Y_m_d_His'));
+//        $filename = time().$uploadedFile->getClientOriginalName();
+        $filename = Carbon::now()->format('Y_m_d_His');
+//        dd($filename, $uploadedFile);
+
+        Storage::disk('local')->putFileAs(
+            'files/'.$filename,
+            $uploadedFile,
+            $filename
+        );*/
+        $path = $request->file('upload')->store('public/files');
+        $path = trim(strstr($path,"files"));
+//        dd($path);
+        return $path;
     }
 
     /**
@@ -177,7 +201,7 @@ class PostController extends Controller
         } else {
 
             $comment = new Comment();
-            $comment->user_id = Auth::user()->id;
+            $comment->user_id = $request->user()->id;
             $comment->message = $comment_message;
             $post->comments()->save($comment);
         }

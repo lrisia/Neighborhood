@@ -86,6 +86,12 @@
         <p class="text-gray-900 font-normal p-2 mb-8">
             {{ $post->description }}
         </p>
+
+        @if(!is_null($post->picture_path))
+            <div class="relative flex items-center justify-center">
+                <img class="max-w-lg h-auto rounded-lg" src="{{ asset('storage/' . $post->picture_path) }}" alt="picture not load">
+            </div>
+        @endif
     </article>
 
     <section class="mt-8 mx-16">
