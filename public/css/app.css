@@ -1669,6 +1669,12 @@ input:checked + .toggle-bg {
 .border-r {
   border-right-width: 1px;
 }
+.border-b-0 {
+  border-bottom-width: 0px;
+}
+.border-l {
+  border-left-width: 1px;
+}
 .border-dashed {
   border-style: dashed;
 }
@@ -1710,6 +1716,10 @@ input:checked + .toggle-bg {
 .border-blue-600 {
   --tw-border-opacity: 1;
   border-color: rgb(28 100 242 / var(--tw-border-opacity));
+}
+.border-blue-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(164 202 254 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
