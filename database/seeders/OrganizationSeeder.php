@@ -27,12 +27,5 @@ class OrganizationSeeder extends Seeder
                 $organize->save();
             });
         }
-
-        $this->command->line("Generating Organization for all posts");
-        $posts = Post::get();
-        $posts->each(function($post, $key) {
-            $organization_id = Tag::inRandomOrder()->get('id');
-            $post->organization = $organization_id;
-        });
     }
 }

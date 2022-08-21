@@ -1360,18 +1360,6 @@ input:checked + .toggle-bg {
 .-mt-px {
   margin-top: -1px;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
->>>>>>> feature/post
-=======
->>>>>>> feature/post
->>>>>>> develop
 .block {
   display: block;
 }
@@ -1465,18 +1453,6 @@ input:checked + .toggle-bg {
 .w-1\/2 {
   width: 50%;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.w-10 {
-  width: 2.5rem;
-}
->>>>>>> feature/post
-=======
->>>>>>> feature/post
->>>>>>> develop
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1486,17 +1462,6 @@ input:checked + .toggle-bg {
 .max-w-6xl {
   max-width: 72rem;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-.max-w-full {
-  max-width: 100%;
-}
-=======
->>>>>>> feature/post
->>>>>>> develop
 .max-w-lg {
   max-width: 32rem;
 }
@@ -1684,33 +1649,12 @@ input:checked + .toggle-bg {
 .border {
   border-width: 1px;
 }
-<<<<<<< HEAD
 .border-2 {
   border-width: 2px;
 }
 .border-0 {
   border-width: 0px;
 }
-=======
-<<<<<<< HEAD
-.border-0 {
-  border-width: 0px;
-}
-<<<<<<< HEAD
-=======
-.border-2 {
-  border-width: 2px;
-}
->>>>>>> feature/post
-=======
-.border-2 {
-  border-width: 2px;
-}
-.border-0 {
-  border-width: 0px;
-}
->>>>>>> feature/post
->>>>>>> develop
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1725,11 +1669,6 @@ input:checked + .toggle-bg {
 }
 .border-r {
   border-right-width: 1px;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> develop
 }
 .border-dashed {
   border-style: dashed;
@@ -1827,6 +1766,26 @@ input:checked + .toggle-bg {
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 246 178 / var(--tw-bg-opacity));
+}
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 253 234 / var(--tw-bg-opacity));
+}
+.bg-\[\#FFC300\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 195 0 / var(--tw-bg-opacity));
+}
+.bg-\[\#FAE386\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 227 134 / var(--tw-bg-opacity));
+}
+.bg-\[\#FFEA96\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 234 150 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1966,22 +1925,7 @@ input:checked + .toggle-bg {
 }
 .pt-8 {
   padding-top: 2rem;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 }
-<<<<<<< HEAD
-.pt-5 {
-  padding-top: 1.25rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
->>>>>>> feature/post
->>>>>>> develop
-}
-=======
->>>>>>> feature/post
 .text-center {
   text-align: center;
 }
