@@ -1311,6 +1311,9 @@ input:checked + .toggle-bg {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1353,9 +1356,6 @@ input:checked + .toggle-bg {
 .-mt-px {
   margin-top: -1px;
 }
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
 .block {
   display: block;
 }
@@ -1395,6 +1395,12 @@ input:checked + .toggle-bg {
 .h-6 {
   height: 1.5rem;
 }
+.h-64 {
+  height: 16rem;
+}
+.h-auto {
+  height: auto;
+}
 .h-20 {
   height: 5rem;
 }
@@ -1403,12 +1409,6 @@ input:checked + .toggle-bg {
 }
 .h-9 {
   height: 2.25rem;
-}
-.h-64 {
-  height: 16rem;
-}
-.h-auto {
-  height: auto;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1428,6 +1428,9 @@ input:checked + .toggle-bg {
 .w-full {
   width: 100%;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-9\/12 {
   width: 75%;
 }
@@ -1446,23 +1449,17 @@ input:checked + .toggle-bg {
 .w-1\/2 {
   width: 50%;
 }
-.w-10 {
-  width: 2.5rem;
-}
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-lg {
+  max-width: 32rem;
 }
 .max-w-xl {
   max-width: 36rem;
 }
 .max-w-6xl {
   max-width: 72rem;
-}
-.max-w-full {
-  max-width: 100%;
-}
-.max-w-lg {
-  max-width: 32rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1648,11 +1645,11 @@ input:checked + .toggle-bg {
 .border {
   border-width: 1px;
 }
-.border-0 {
-  border-width: 0px;
-}
 .border-2 {
   border-width: 2px;
+}
+.border-0 {
+  border-width: 0px;
 }
 .border-b {
   border-bottom-width: 1px;
@@ -1668,12 +1665,6 @@ input:checked + .toggle-bg {
 }
 .border-r {
   border-right-width: 1px;
-}
-.border-b-0 {
-  border-bottom-width: 0px;
-}
-.border-l {
-  border-left-width: 1px;
 }
 .border-dashed {
   border-style: dashed;
@@ -1716,10 +1707,6 @@ input:checked + .toggle-bg {
 .border-blue-600 {
   --tw-border-opacity: 1;
   border-color: rgb(28 100 242 / var(--tw-border-opacity));
-}
-.border-blue-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(164 202 254 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1888,6 +1875,12 @@ input:checked + .toggle-bg {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
+.pt-5 {
+  padding-top: 1.25rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1908,12 +1901,6 @@ input:checked + .toggle-bg {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pt-5 {
-  padding-top: 1.25rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
 }
 .text-center {
   text-align: center;
