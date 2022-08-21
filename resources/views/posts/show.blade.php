@@ -90,6 +90,21 @@
                     <div class="text-xl pl-4">
                         {{ $comment->message }}
                     </div>
+
+
+                    <form action="{{ route('comments.destroy', ['comment' => $comment]) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <div class="relative z-0 mb-6 w-full group">
+                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    </label>
+                </div>
+                <button class="app-button red" type="submit">DELETE</button>
+                    </form>
+
+
+
+        </div>
                 </div>
             @endforeach
             </div>
@@ -98,6 +113,8 @@
                 Be the first one to comment...
             </div>
         @endif
+
+
     </section>
 
     @can('update', $post)

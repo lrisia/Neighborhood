@@ -174,4 +174,18 @@ class PostController extends Controller
         $post->comments()->save($comment);
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
+
+    public function deleteComment(Request $request, Commend $comment, $id )
+    {
+        $this->authorize('delete', $post);
+
+        $title = $request->input('title');
+        if ($title == $post->title) {
+            $comment->delete();
+            return redirect()->route('posts.index');
+        }
+
+        return redirect()->back();
+    }
+
 }
