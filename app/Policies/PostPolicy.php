@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->isAdmin() or $user->isEditor() or $user->isUser();
+        return $user->isAdmin() or $user->isStaff() or $user->isUser();
     }
 
     /**
@@ -53,8 +53,10 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->isAdmin() or $user->isEditor() or
-            ($user->isUser() and $user->id === $post->user_id);
+        return $user->isAdmin() or $user->isStaff() or
+            ($user->isUser() and $user->id === $post->user_id and $post->status !== "Received"
+                                                              and $post->status !== "Progress"
+                                                              and $post->status !== "Completed");
     }
 
     /**
@@ -91,5 +93,13 @@ class PostPolicy
     public function forceDelete(User $user, Post $post)
     {
         return $user->isAdmin();
+    }
+
+    public function user_per(User $user) {
+        return $user->isUser();
+    }
+
+    public function staff_per(User $user) {
+        return $user->isStaff();
     }
 }

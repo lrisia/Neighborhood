@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Organization;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -63,6 +64,11 @@ class PostController extends Controller
 //        $post->user_id = Auth::user()->id;
         $post->user_id = $request->user()->id;
         $post->picture_path = $this->uploadPicture($request);
+
+//        dd($request->input('organization'));
+//        $organization = Organization::find($request->input('organization'));
+        $post->organization_id = $request->input('organization');
+
         $post->save();
 
         $tags = $request->get('tags');
@@ -95,7 +101,7 @@ class PostController extends Controller
         return $tag_ids;
     }
 
-    public function uploadPicture(Request $request) {
+    private function uploadPicture(Request $request) {
 /*        $uploadedFile = $request->get('image');
 //        dd($uploadedFile);
 //        dd(time().$uploadedFile->getClientOriginalName());
@@ -109,6 +115,8 @@ class PostController extends Controller
             $uploadedFile,
             $filename
         );*/
+        if (is_null($request->file('upload')))
+            return null;
         $path = $request->file('upload')->store('public/files');
         $path = trim(strstr($path,"files"));
 //        dd($path);

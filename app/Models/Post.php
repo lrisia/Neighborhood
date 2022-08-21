@@ -51,6 +51,16 @@ class Post extends Model
         else return "ส่งเรื่องกลับ";
     }
 
+    public function tagsConcat() {
+        $tags_name = "";
+        foreach ($this->tags as $tag) {
+//            dd($tag->id);
+            $tag_name = Tag::find($tag->id)->name;
+            if ($tags_name === "") $tags_name = $tag_name;
+            else $tags_name = $tags_name.",".$tag_name;
+        }
+        return $tags_name;
+    }
 
     public function scopeAdvertise($query)
     {

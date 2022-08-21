@@ -23,6 +23,10 @@
                         </svg>
                         {{ $post->view_count }} views
                     </p>--}}
+                    <p class="bg-[#FFEA96] text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
+                        <span class="material-symbols-outlined">corporate_fare</span>
+                        &nbsp;ส่งเรื่องถึงองค์กร {{ $post->organization->name }}
+                    </p>
 
                     <p class="bg-green-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
                         <span class="material-symbols-outlined">voting_chip</span>

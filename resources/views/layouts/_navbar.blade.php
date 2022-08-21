@@ -37,7 +37,7 @@
                     <li>
                         <a href="{{ route('tags.index') }}"
                            class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline @if(Route::currentRouteName() === 'tags.index') current-page @endif" >
-                            Tags
+                            หมวดหมู่รายงานทั้งหมด
                         </a>
                     </li>
                     <li>
