@@ -43,11 +43,16 @@
                 &nbsp;สถานะ: {{ $post->statusTranslator() }}
             </p>
 
+            <p class="bg-green-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
+                <span class="material-symbols-outlined">voting_chip</span>
+                &nbsp;ส่งเรื่องถึงองค์กร {{ $post->organization }}
+            </p>
+
             <form action="{{ route('posts.status.update', ['post' => $post->id]) }}" method="post">
                 @csrf
 {{--                @method('PUT')--}}
                 <div class="mt-2 bg-gray-100 p-2 rounded">
-                    <label for="countries" class="mx-4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">เลือกสถานะที่จะเปลี่ยน</label>
+                    <label for="countries" class="mx-4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">เลือกสถานะที่จะเปลี่ยน</label><br>
                     <select name="status" id="status" class="w-9/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 {{--                        <option value="Default" selected>เลือกสถานะ</option>--}}
                         <option value="{{ $post->status }}" selected>{{ $post->status }}</option>

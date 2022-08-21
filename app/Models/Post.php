@@ -34,6 +34,10 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function organization() {
+        return $this->belongsTo(Organization::class);
+    }
+
     public function statusChecker(string $str) {
         if ($this->status === $str) return true;
         return false;
