@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->isAdmin() or $user->isStaff() or $user->isUser();
+        return $user->isUser() or $user->isAdmin();
     }
 
     /**
@@ -104,6 +104,6 @@ class PostPolicy
     }
 
     public function is_your_duty(User $user, Post $post) {
-        return $user->organization_id === $post->organization_id;
+        return $user->organization_id === $post->organization_id or $user->isAdmin();
     }
 }

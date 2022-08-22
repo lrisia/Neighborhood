@@ -83,6 +83,18 @@
                 <span class="bg-white px-4 text-sm text-gray-500">ดำเนินการ</span>
             </div>
         </div>
+        <div class="relative z-0 p-2 w-full group">
+            <label for="contact" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                ช่องทางการติดต่อ
+            </label>
+            @if ($errors->has('title'))
+                <p class="text-red-600">
+                    {{ $errors->first('title') }}
+                </p>
+            @endif
+            <input type="text" name="contact" id="contact" value="{{ $post->user->email }}" disabled
+                   class="bg-gray-50 border @error('title') border-red-600 @else border-gray-300 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
         <form action="{{ route('posts.status.update', ['post' => $post->id]) }}" method="post">
             @csrf
             {{--                @method('PUT')--}}
