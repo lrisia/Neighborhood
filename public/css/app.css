@@ -1260,6 +1260,9 @@ input:checked + .toggle-bg {
 .z-30 {
   z-index: 30;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1554,6 +1557,9 @@ input:checked + .toggle-bg {
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .flex-col {
   flex-direction: column;
 }
@@ -1583,6 +1589,9 @@ input:checked + .toggle-bg {
 }
 .justify-items-center {
   justify-items: center;
+}
+.gap-1 {
+  gap: 0.25rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1766,6 +1775,10 @@ input:checked + .toggle-bg {
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.bg-\[\#FFEA96\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 234 150 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
