@@ -12,13 +12,19 @@ use Illuminate\Support\Str;
 class CommentController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
+    
 public function destroy(Comment $comment)
     {
         $this->authorize('delete', $comment);
 
         $post = Post::all()->where('id',$comment->post_id)->first();
         $comment->delete();
-        return view('posts.show', ['post' => $post]);
+        return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
 }

@@ -157,7 +157,6 @@ class PostController extends Controller
     public function destroy(Request $request, Post $post)
     {
         $this->authorize('delete', $post);
-
         $title = $request->input('title');
         if ($title == $post->title) {
             $post->delete();
@@ -170,22 +169,9 @@ class PostController extends Controller
     public function storeComment(Request $request, Post $post)
     {
         $comment = new Comment();
+        $comment->user_id = Auth::user()->id;
         $comment->message = $request->get('message');
         $post->comments()->save($comment);
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
-
-    public function deleteComment(Request $request, Commend $comment, $id )
-    {
-        $this->authorize('delete', $post);
-
-        $title = $request->input('title');
-        if ($title == $post->title) {
-            $comment->delete();
-            return redirect()->route('posts.index');
-        }
-
-        return redirect()->back();
-    }
-
 }

@@ -1,7 +1,10 @@
+
 {{-- resources/views/posts/show.blade.php --}}
+
 @extends('layouts.main')
 
 @section('content')
+    <link rel="stylesheet" href="{{ URL::asset('resources/css/app.css') }}" />
     <article class="mx-8">
         <h1 class="text-3xl mb-1">
             {{ $post->title }}
@@ -91,7 +94,7 @@
                         {{ $comment->message }}
                     </div>
 
-
+            @can('delete', $comment)
                     <form action="{{ route('comments.destroy', ['comment' => $comment]) }}" method="post">
                 @csrf
                 @method('DELETE')
@@ -99,9 +102,10 @@
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     </label>
                 </div>
-                <button class="app-button red" type="submit">DELETE</button>
-                    </form>
-
+                <button class="app-button commentt" type="submit">DELETE</button>
+                
+                </form>
+            @endcan
 
 
         </div>
@@ -116,6 +120,8 @@
 
 
     </section>
+
+
 
     @can('update', $post)
         <section class="mt-8 mx-8">
