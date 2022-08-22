@@ -102,4 +102,8 @@ class PostPolicy
     public function staff_per(User $user) {
         return $user->isStaff();
     }
+
+    public function is_your_duty(User $user, Post $post) {
+        return $user->organization_id === $post->organization_id;
+    }
 }

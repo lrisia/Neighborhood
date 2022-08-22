@@ -73,7 +73,7 @@
         @endif
     </article>
 
-    @can('staff_per', \App\Models\Post::class)
+    @can('is_your_duty', $post)
     <section class="mt-8 mx-16">
         <div class="relative py-4">
             <div class="absolute inset-0 flex items-center">

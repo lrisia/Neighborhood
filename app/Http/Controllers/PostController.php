@@ -219,6 +219,10 @@ class PostController extends Controller
     public function updateStatus(Request $request, Post $post) {
 //        dd($request->get('status'));
         $post->status = $request->get('status');
+        if ($post->organization_id != $request->input('organization')) {
+//            dd($post->organization_id, $request->input('organization'));
+            $post->status = "Waiting";
+        }
         $post->organization_id = $request->input('organization');
 //        dd($request->input('organization'));
         $post->save();
