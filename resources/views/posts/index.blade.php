@@ -13,9 +13,9 @@
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                         {{ $post->title }}
                     </h5>
-                    <p class="mb-2">
+                    {{--<p class="mb-2">
                         รายงานโดย  {{ $post->user->name }}
-                    </p>
+                    </p>--}}
 
                     {{--<p class="bg-orange-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
                         <svg class="w-6 h-6 inline mr-1" viewBox="0 0 20 20">

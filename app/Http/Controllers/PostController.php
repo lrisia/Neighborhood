@@ -219,6 +219,8 @@ class PostController extends Controller
     public function updateStatus(Request $request, Post $post) {
 //        dd($request->get('status'));
         $post->status = $request->get('status');
+        $post->organization_id = $request->input('organization');
+//        dd($request->input('organization'));
         $post->save();
         return redirect()->route('posts.show', ['post' => $post->id]);
     }

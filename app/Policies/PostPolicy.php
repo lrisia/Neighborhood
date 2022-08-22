@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->isAdmin() or $user->isStaff() or
+        return $user->isAdmin() or
             ($user->isUser() and $user->id === $post->user_id and $post->status !== "Received"
                                                               and $post->status !== "Progress"
                                                               and $post->status !== "Completed");

@@ -3,7 +3,7 @@
 @section('content')
     <section class="mx-8">
         <h1 class="mt-6 text-3xl mb-6">
-            Edit post
+            แก้ไขรายงาน
         </h1>
 
         <form action="{{ route('posts.update', ['post' => $post->id]) }}" method="post">
@@ -42,6 +42,14 @@
 {{--                @endforeach--}}
 {{--            </select>--}}
 
+            <label for="organization" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">เลือกหน่วยงานที่ต้องการให้รับผิดชอบรายงานนี้</label>
+            <select name="organization" id="organization" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="{{ $post->organization->id }}">{{ $post->organization->name }}</option>
+                @foreach(\App\Models\Organization::get() as $organization)
+                    <option value="{{ $organization->id }}">{{ $organization->name }}</option>
+                @endforeach
+            </select>
+
             <div class="relative z-0 mb-6 w-full group">
                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
                     รายละเอียด
@@ -53,11 +61,11 @@
                 @enderror
                 <textarea rows="4" type="text" name="description" id="description"
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          required >{{ old('description'), $post->description }}</textarea>
+                          required >{{ old('description') }}{{ $post->description }}</textarea>
             </div>
 
             <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                รูปภาพ
+                รูปภาพ (ไม่ต้องแก้ไขหากใช้รูปเดิม)
             </label>
             <div class="flex justify-center items-center w-full mb-6">
                 <label for="upload" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
@@ -83,15 +91,15 @@
                 <div class="w-full border-b border-red-300"></div>
             </div>
             <div class="relative flex justify-center">
-                <span class="bg-white px-4 text-sm text-red-500">Danger Zone</span>
+                <span class="bg-white px-4 text-sm text-red-500">พื้นที่อันตราย</span>
             </div>
         </div>
 
         <div>
             <h3 class="text-red-600 mb-4 text-2xl">
-                Delete this Post
+                ลบรายงาน
                 <p class="text-gray-800 text-xl">
-                    Once you delete a post, there is no going back. Please be certain.
+                    เมื่อลบแล้วจะมาสามารถย้อนกลับได้ โปรดกระทำอย่างรอบครอบ
                 </p>
             </h3>
 
@@ -100,13 +108,13 @@
                 @method('DELETE')
                 <div class="relative z-0 mb-6 w-full group">
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Post Title to Delete
+                        เขียนหัวข้อให้ถูกต้องเพื่อลบ
                     </label>
                     <input type="text" name="title" id="title"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="" required>
                 </div>
-                <button class="app-button red" type="submit">DELETE</button>
+                <button class="app-button red" type="submit">ลบ</button>
             </form>
         </div>
     </section>
