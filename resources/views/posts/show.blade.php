@@ -158,7 +158,7 @@
                 <div class="block p-6 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 ">
                     <p class="bg-orange-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2">
                         {{ $comment->created_at->diffForHumans() }}
-                        <p class="inline-flex text-gray-400 text-sm">ความคิดเห็นโดย {{ $comment->user->name }}</p>
+{{--                        <p class="inline-flex text-gray-400 text-sm">ความคิดเห็นโดย {{ $comment->user->name }}</p>--}}
                     </p>
                     <div class="text-xl pl-4">
                         {{ $comment->message }}

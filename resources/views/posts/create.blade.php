@@ -6,7 +6,17 @@
             เขียนรายงานใหม่
         </h1>
 
-{{--        <h1 class="text-2xl">คุณพบปัญหาอะไรมา</h1>--}}
+        <h1 class="text-1xl mb-2">แนวทางในการแจ้งปัญหาต่าง ๆ</h1>
+        <textarea name="" id="" cols="30" rows="6" disabled
+                  style="resize: none"
+                  class="mb-6 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+หากปัญหาของคุณเป็นเรื่องเล็กน้อย เช่น น้ำหก มดกัด โดนแมวเลีย สามารถแจ้งแม่บ้านในบริเวณใกล้ ๆ ได้เลย
+แต่หากปัญหาของคุณจำเป็นต้องมีการประสานงานระดับใหญ่ ต่อไปนี้จะเป็นแนวทางการเลือกองค์กรที่จะรายงานเพื่อให้ไม่เสียเวลาถูกส่งเรื่องกลับมา
+- องค์การบริหาร องค์กรนิสิต หากปัญหาของคุณเกี่ยวข้องกับระบบการบริหารนิสิต
+- สำนักงานวิทยาศาสตร์ หากปัญหาของคุณเกี่ยวข้องกับคณะวิทยาศาสตร์
+- สำนักกีฬา หากปัญหาของคุณเกี่ยวข้องกับการเรื่องกีฬา เช่น สนาม อุปกรณ์
+- สภาผู้แทนนิสิตองค์กรนิสิต หากปัญหาของคุณเกี่ยวกับเรื่องสวัสดิการหรือสิทธิต่าง ๆ ภายในมหาวิทยาลัย
+        </textarea>
 
         <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
