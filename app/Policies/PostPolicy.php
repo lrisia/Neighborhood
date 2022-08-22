@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->isUser() or $user->isAdmin();
+        return $user->isUser();
     }
 
     /**
