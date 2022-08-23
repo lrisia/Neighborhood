@@ -3,7 +3,7 @@
         <x-slot name="logo">
             <a href="/">
                 <span class="self-center text-xl font-semibold whitespace-nowrap">
-                    <p class="inline-flex text-3xl">&mu;</p>niversity &reg;eport
+                    <p class="inline-flex text-3xl">&mu;</p>niversity Report
                 </span>
             </a>
         </x-slot>

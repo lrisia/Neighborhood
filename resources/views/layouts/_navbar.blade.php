@@ -2,7 +2,7 @@
     <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href="{{ url('/') }}" class="flex items-center">
             <span class="self-center text-xl font-semibold whitespace-nowrap">
-                <p class="inline-flex text-3xl">&mu;</p>niversity &reg;eport
+                <p class="inline-flex text-3xl">&mu;</p>niversity Report
             </span>
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
@@ -45,6 +45,22 @@
                             <a href="{{ route('pages.index') }}"
                                class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline" >
                                 <span class="material-symbols-outlined">grid_view</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('organization_list', \App\Models\Post::class)
+                        <li>
+                            <a href="{{ route('organize.index') }}"
+                               class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline" >
+                                <span class="material-symbols-outlined">format_list_bulleted</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('user_per', \App\Models\Post::class)
+                        <li>
+                            <a href="{{ route('user.index') }}"
+                               class="block py-2 pr-4 pl-3 rounded md:p-0 hover:underline" >
+                                <span class="material-symbols-outlined">format_list_bulleted</span>
                             </a>
                         </li>
                     @endcan

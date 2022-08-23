@@ -9,7 +9,6 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -29,6 +28,9 @@ class PostController extends Controller
     {
 //        $posts = Post::latest()->paginate(50);
         $posts = Post::get();
+//        if (Auth::user()->organization_id != null) {
+//            $posts = Post::get()->where('organization_id', Auth::user()->organization_id);
+//        }
         return view('posts.index', ['posts' => $posts]);
     }
 

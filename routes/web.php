@@ -25,13 +25,19 @@ require __DIR__.'/auth.php';
 
 Route::post('/posts/{post}/comments', [\App\Http\Controllers\PostController::class, 'storeComment'])
     ->name('posts.comments.store');
+
 Route::post('/posts/{post}/status', [\App\Http\Controllers\PostController::class, 'updateStatus'])
     ->name('posts.status.update');
+
 Route::get('/pages', [\App\Http\Controllers\PageController::class, 'index'])
     ->name('pages.index');
+
 Route::resource('/comments', \App\Http\Controllers\CommentController::class);
 
-
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
+
+Route::resource('/organize', \App\Http\Controllers\OrganizationController::class);
+
+Route::resource('/user', \App\Http\Controllers\UserController::class);
 
 Route::resource('/tags', \App\Http\Controllers\TagController::class);
