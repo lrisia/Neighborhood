@@ -112,45 +112,50 @@
                 {{ __('Dashboard') }}
             </h2>
         </x-slot>
-        <h1>Laravel 9 ChartJS Chart Example - ItSolutionStuff.com</h1>
-        <canvas id="myChart" height="100px"></canvas>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-        <script type="text/javascript">
-
-            var labels =  {{ Js::from($labels) }};
-            var users =  {{ Js::from($data) }};
-
-            const data = {
-                labels: labels,
-                datasets: [{
-                    label: 'My First dataset',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: users,
-                }]
-            };
-
-            const config = {
-                type: 'line',
-                data: data,
-                options: {}
-            };
-
-            const myChart = new Chart(
-                document.getElementById('myChart'),
-                config
-            );
-
-        </script>
-
-        <!-- <div class="py-12">
+        <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        You're logged in!
+                        <h1>Laravel 9 ChartJS Chart Example - ItSolutionStuff.com</h1>
+                        <canvas id="myChart" height="100px"></canvas>
+
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                        <script type="text/javascript">
+
+                            var labels =  {{ Js::from($labels) }};
+                            var users =  {{ Js::from($data) }};
+
+                            const data = {
+                                labels: labels,
+                                datasets: [{
+                                    label: 'หมวดหมู่ทั้งหมด',
+                                    backgroundColor: 'rgb(255, 99, 132)',
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    data: users,
+                                }, {
+                                    label: 'หมวดหมี่',
+                                    backgroundColor: 'rgb(99,112,255)',
+                                    borderColor: 'rgb(99,112,255)',
+                                    data: users,
+                                }
+                                ]
+                            };
+
+                            const config = {
+                                type: 'line',
+                                data: data,
+                                options: {}
+                            };
+
+                            const myChart = new Chart(
+                                document.getElementById('myChart'),
+                                config
+                            );
+
+                        </script>
                     </div>
                 </div>
             </div>

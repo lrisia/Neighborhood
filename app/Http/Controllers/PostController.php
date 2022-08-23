@@ -208,7 +208,6 @@ class PostController extends Controller
             $post->like_count = $post->like_count + 1;
             $post->save();
         } else {
-
             $comment = new Comment();
             $comment->user_id = $request->user()->id;
             $comment->message = $comment_message;

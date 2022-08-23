@@ -29,6 +29,7 @@ Route::post('/posts/{post}/status', [\App\Http\Controllers\PostController::class
     ->name('posts.status.update');
 Route::get('/pages', [\App\Http\Controllers\PageController::class, 'index'])
     ->name('pages.index');
+Route::resource('/comments', \App\Http\Controllers\CommentController::class);
 
 
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
