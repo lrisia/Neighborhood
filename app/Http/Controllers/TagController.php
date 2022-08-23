@@ -16,6 +16,7 @@ class TagController extends Controller
     {
         $tags = Tag::get();
         return view('tags.index', ['tags' => $tags]);
+
     }
 
     /**

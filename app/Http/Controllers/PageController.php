@@ -13,56 +13,42 @@ use Illuminate\Support\Facades\DB;
 class PageController extends Controller
 {
     public function index() {
-        
-              
-        $posts = Post::all()->where('like_count','>=','49555');
-
-        
-
-
-        $tags_array = [];
-        foreach ($posts as $post) {
-            foreach($post->tags as $tag){
-                $tags_array[] = $tag->name;
-            }
+        $label = [];
+        $price = [];
+        $tags = Tag::get();
+        foreach ($tags as $tag) {
+            array_push($label, $tag->name);
+            array_push($price, $tag->posts->count());
         }
-
-        $tags_array = array_unique($tags_array);
-
-
-
-        $tags_number = array_map(function ($tag_array) use ($posts) {
-            $number = 0;
-            foreach($posts as $post) { 
-                foreach($post->tags as $tag) { 
-                    if ( $tag->name == $tag_array) { 
-                        $number = $number + 1;
-                    }
-                }
-            }
-            return $number;
-        }, $tags_array);
-        
-
-        $tags = array_combine($tags_array, $tags_number);
-        arsort($tags);
-
-        
-    
-
-        $tag_mosttag = 5;
-        $tags = array_slice($tags, 0, $tag_mosttag, true);
-
-
-        $tags_array = array_keys($tags);
-        $tags_number = array_values($tags);
-
-    
-
-        return view('dashboard',
-                ['tags_array' => $tags_array,
-                'tags_number' => $tags_number]);
-
+        return view('dashboard', ['labels' => $label, 'data' => $price]);
+//        $posts = Post::all()->where('like_count','>=','49555');
+//        $tags_array = [];
+//        foreach ($posts as $post) {
+//            foreach($post->tags as $tag){
+//                $tags_array[] = $tag->name;
+//            }
+//        }
+//        $tags_array = array_unique($tags_array);
+//        $tags_number = array_map(function ($tag_array) use ($posts) {
+//            $number = 0;
+//            foreach($posts as $post) {
+//                foreach($post->tags as $tag) {
+//                    if ( $tag->name == $tag_array) {
+//                        $number = $number + 1;
+//                    }
+//                }
+//            }
+//            return $number;
+//        }, $tags_array);
+//        $tags = array_combine($tags_array, $tags_number);
+//        arsort($tags);
+//        $tag_mosttag = 5;
+//        $tags = array_slice($tags, 0, $tag_mosttag, true);
+//        $tags_array = array_keys($tags);
+//        $tags_number = array_values($tags);
+//        return view('dashboard',
+//                ['tags_array' => $tags_array,
+//                'tags_number' => $tags_number]);
 
 //        $posts = Post::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
 //            ->whereYear('created_at', date('Y'))
